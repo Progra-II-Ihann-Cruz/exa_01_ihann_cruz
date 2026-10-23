@@ -48,7 +48,8 @@ def jugar(jugadores):
     ganador = None
 
     for jugador in jugadores:
-        print(f"{jugador.nombre:<22}", end="")
+        espacios = 22 - len(jugador.nombre)
+        print(jugador.nombre + " " * espacios, end="")
     print()
 
     for ronda in range(10):
@@ -57,7 +58,8 @@ def jugar(jugadores):
                 carta = jugador.partida.pop()
                 jugador.cartas_obtenidas.append(carta)
 
-                print(f"{carta:<22}", end="", flush=True)
+                espacios = 22 - len(carta)
+                print(carta + " " * espacios, end="", flush=True)
 
                 if carta == "QC":
                     ganador = jugador
