@@ -10,7 +10,7 @@ Professor....: Jorge Ruiz (york)
 Student......:
 ================================================================================================="""
 from cls_Stack import cls_Stack
-from Subrutinas import validar_parentesis,repartir_naipes
+from Subrutinas import validar_parentesis, repartir_naipes, jugar, mostrar_resultados, vaciar_pilas
 from Jugador import Jugador
 
 print()
@@ -31,7 +31,6 @@ while not pilita.isempty():
     print(pilita.pop())
 
 
-
 def main():
     print("Problema 1: Validación de paréntesis")
     expresion = input("Escriba una expresión matemática: ")
@@ -44,21 +43,22 @@ def main():
         print("No se pudo evaluar la expresión:", error)
 
 
-jugadores = [
-    Jugador("Ihann Cruz"),
-    Jugador("Federick Umaña"),
-    Jugador("Jefferson Ortega"),
-    Jugador("Luca Solano")
-]
+    #Problema 2
+    jugadores = [
+        Jugador("Ihann Cruz"),
+        Jugador("Federick Umaña"),
+        Jugador("Jefferson Ortega"),
+        Jugador("Luca Solano")
+    ]
 
-repartir_naipes(jugadores)
+    repartir_naipes(jugadores)
 
-for jugador in jugadores:
-    print(f"{jugador.nombre} {len(jugador.partida)}")
+    for jugador in jugadores:
+        print(f"El jugador: {jugador.nombre} tiene {len(jugador.partida)} cartas.")
 
-
-
-
+    ganador = jugar(jugadores)
+    vaciar_pilas(jugadores)
+    mostrar_resultados(ganador)
 
 if __name__ == "__main__":
     main()

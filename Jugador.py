@@ -4,6 +4,7 @@ class Jugador:
     def __init__(self, nombre):
         self.__nombre = nombre
         self.partida = cls_Stack()
+        self.cartas_obtenidas = []
 
 
     @property
