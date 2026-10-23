@@ -2,6 +2,25 @@ import random
 from cls_Stack import cls_Stack
 
 
+
+def repartir_naipes(jugadores):
+    disponibles = []
+    for jugador in jugadores:
+        if not jugador.partida.isempty():
+         print( f"La pila de {jugador.nombre} debe estar vacía.")
+         return
+    for palo in baraja:
+        for carta in palo:
+            disponibles.append(carta)  
+
+    random.shuffle(disponibles)
+
+    for turno in range(10):
+        for jugador in jugadores:
+            carta = disponibles.pop()
+            jugador.partida.push(carta)  
+
+
 def validar_parentesis(expresion):
     pila = cls_Stack()
     if not pila.isempty():

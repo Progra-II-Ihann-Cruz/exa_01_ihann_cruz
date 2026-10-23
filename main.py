@@ -10,7 +10,8 @@ Professor....: Jorge Ruiz (york)
 Student......:
 ================================================================================================="""
 from cls_Stack import cls_Stack
-from Subrutinas import validar_parentesis
+from Subrutinas import validar_parentesis,repartir_naipes
+from Jugador import Jugador
 
 print()
 print("Stack implementation")
@@ -41,6 +42,22 @@ def main():
             print("La expresión está mal escrita en cuanto a sus agrupadores.")
     except ValueError as error:
         print("No se pudo evaluar la expresión:", error)
+
+
+jugadores = [
+    Jugador("Ihann Cruz"),
+    Jugador("Federick Umaña"),
+    Jugador("Jefferson Ortega"),
+    Jugador("Luca Solano")
+]
+
+repartir_naipes(jugadores)
+
+for jugador in jugadores:
+    print(f"{jugador.nombre} {len(jugador.partida)}")
+
+
+
 
 
 if __name__ == "__main__":
